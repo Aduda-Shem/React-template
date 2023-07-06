@@ -6,6 +6,7 @@ import '../../App.css';
 const Dashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSelectCategory = (categoryName) => {
     setSelectedCategory(categoryName);
@@ -20,9 +21,17 @@ const Dashboard = () => {
     // Handle the link click logic here, such as navigating to the desired page
   };
 
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+   
+  };
+
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
+        <div className="dashboard-title-container">
+          <h1 className="dashboard-title">Dashboard</h1>
+        </div>
         <div className="dots-menu">
           <div className="dots-icon" onClick={togglePopup}>
             <div className={`dot${showPopup ? ' active' : ''}`}></div>
@@ -51,10 +60,18 @@ const Dashboard = () => {
             </div>
           )}
         </div>
-        <h1 className="dashboard-title">Dashboard</h1>
       </header>
       <div className="dashboard-content">
         <aside className="dashboard-sidebar">
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            className="search-input"
+          />
+        </div>
           <Categories onSelectCategory={handleSelectCategory} selectedCategory={selectedCategory} />
         </aside>
         <main className="dashboard-main">

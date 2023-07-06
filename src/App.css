@@ -161,6 +161,8 @@ input:focus {
 }
 
 
+
+
 /* Styles for Dashboard.jsx */
 .dashboard-container {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -177,6 +179,8 @@ input:focus {
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  background-color: #f2f2f2;
 }
 
 .dots-menu {
@@ -193,7 +197,7 @@ input:focus {
 }
 
 .dot {
-  width: 8px;
+  width: 10px;
   height: 8px;
   background-color: #e6e6e6;
   border-radius: 50%;
@@ -205,6 +209,7 @@ input:focus {
   background-color: #ff6f00;
 }
 
+
 .popup-menu {
   position: absolute;
   top: calc(100% + 10px);
@@ -214,7 +219,9 @@ input:focus {
   padding: 10px;
   z-index: 1;
   border-radius: 8px;
+  width: 150px;
 }
+
 
 .popup-menu ul {
   list-style: none;
@@ -252,6 +259,7 @@ input:focus {
 .dot.active:before {
   opacity: 1;
 }
+
 
 
 
@@ -364,6 +372,7 @@ input:focus {
   color: #333;
 }
 
+
 /* Stylings for products.jsx */
 .products-container {
   padding: 20px;
@@ -453,6 +462,7 @@ input:focus {
 }
 
 
+
 /* Marketing Promotion */
 .marketing-promotion-container {
   margin-top: 10px;
@@ -521,4 +531,23 @@ input:focus {
 }
 
 
+/* Search Styles */
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
 
+.search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #ff6f00;
+  box-shadow: 0 0 5px rgba(255, 111, 0, 0.5);
+}
