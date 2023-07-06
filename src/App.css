@@ -125,7 +125,7 @@ input:focus {
 #login-btn {
   width: 100%;
   padding: 10px;
-  background-color: #3897f0;
+  background-color: #232f3e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -135,7 +135,7 @@ input:focus {
 }
 
 #login-btn:hover {
-  background-color: #2a77b8;
+  background-color: #ff6f00;
 }
 
 #login-btn.escaped {
