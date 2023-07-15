@@ -1,84 +1,84 @@
 import React, { useState } from 'react';
-import Categories from '../items/Categories';
+import { Link } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import MarketingPromotion from '../data/MarketingPromotion';
-import '../../App.css';
+import './Dashboard.css';
+import Categories from '../items/Categories';
 
 const Dashboard = () => {
+
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSelectCategory = (categoryName) => {
     setSelectedCategory(categoryName);
-  };
 
-  const togglePopup = () => {
-    setShowPopup((prevState) => !prevState);
-  };
-
-  const handleLinkClick = (e) => {
-    e.preventDefault(); // Prevent the default link behavior
-    // Handle the link click logic here, such as navigating to the desired page
-  };
-
-  const handleSearchInputChange = (e) => {
-    setSearchQuery(e.target.value);
-   
   };
 
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
         <div className="dashboard-title-container">
-          <h1 className="dashboard-title">Dashboard</h1>
+          <h1 className="dashboard-title">Welcome to ZedFour</h1>
+          <p className="dashboard-subtitle">Revolutionizing Fashion for the Modern Generation</p>
         </div>
-        <div className="dots-menu">
-          <div className="dots-icon" onClick={togglePopup}>
-            <div className={`dot${showPopup ? ' active' : ''}`}></div>
-            <div className={`dot${showPopup ? ' active' : ''}`}></div>
-            <div className={`dot${showPopup ? ' active' : ''}`}></div>
-          </div>
-          {showPopup && (
-            <div className="popup-menu">
-              <ul>
-                <li>
-                  <a href="/profile" onClick={handleLinkClick}>
-                    Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="/logout" onClick={handleLinkClick}>
-                    Logout
-                  </a>
-                </li>
-                <li>
-                  <a href="/other-page" onClick={handleLinkClick}>
-                    Other Page
-                  </a>
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
+        <nav className="dashboard-navigation">
+          <ul>
+            <li>
+              <Link to="/products">Browse Collection</Link>
+            </li>
+          
+            <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+          </ul>
+        </nav>
       </header>
-      <div className="dashboard-content">
-        <aside className="dashboard-sidebar">
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={handleSearchInputChange}
-            className="search-input"
-          />
+      <section className="dashboard-features">
+        <div className="dashboard-feature">
+          <div className="dashboard-feature-content">
+            <h2 className="dashboard-feature-title">Explore Trendsetting Styles</h2>
+            <p className="dashboard-feature-description">
+              Discover the latest fashion trends and curated collections to stay ahead in style.
+            </p>
+          </div>
         </div>
-          <Categories onSelectCategory={handleSelectCategory} selectedCategory={selectedCategory} />
-        </aside>
-        <main className="dashboard-main">
+
+        <div className="dashboard-feature">
+          <div className="dashboard-feature-content">
+            <h2 className="dashboard-feature-title">Virtual Styling Sessions</h2>
+            <p className="dashboard-feature-description">
+                Book a virtual styling session with our fashion experts to get personalized style advice and recommendations.
+            </p>
+          </div>
+        </div>
+
+        <div className="dashboard-feature">
+          <div className="dashboard-feature-content">
+            <h2 className="dashboard-feature-title">Fashion Blog and Inspirations</h2>
+            <p className="dashboard-feature-description">
+                Stay updated with the latest fashion trends, style tips, and inspirations through our fashion blog.
+            </p>
+          </div>
+        </div>
+
+        <div className="dashboard-feature">
+          <div className="dashboard-feature-content">
+            <h2 className="dashboard-feature-title">Design competition</h2>
+            <p className="dashboard-feature-description">
+              Showcase your creative talent and compete for the leaderboard in our design competition.
+            </p>
+          </div>
+        </div>
+        
+      </section>
+      <main className="dashboard-main">
+        <Categories onSelectCategory={handleSelectCategory} selectedCategory={selectedCategory} />
+        </main>
+      <main className="dashboard-main">
           <MarketingPromotion />
         </main>
-      </div>
-      <footer className="dashboard-footer">&copy; 2023 E-Commerce Store. All rights reserved.</footer>
+      <footer className="dashboard-footer">&copy; 2023 ZedFour Fashion App. All rights reserved.</footer>
     </div>
   );
 };
